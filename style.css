@@ -32,6 +32,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Accessibility
 # Clearings
 # Widgets
+## Footer Widget Columns
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -584,7 +585,9 @@ a:active {
 .site-content:before,
 .site-content:after,
 .site-footer:before,
-.site-footer:after {
+.site-footer:after,
+.footer-widgets:before,
+.footer-widgets:after {
 	content: "";
 	display: table;
 	table-layout: fixed;
@@ -593,7 +596,8 @@ a:active {
 .clear:after,
 .site-header:after,
 .site-content:after,
-.site-footer:after {
+.site-footer:after,
+.footer-widgets:after {
 	clear: both;
 }
 
@@ -607,4 +611,31 @@ a:active {
 /* Make sure select elements fit in widgets. */
 .widget select {
 	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Footer Widget Columns
+--------------------------------------------------------------*/
+.footer-widget-area {
+	border: 1px solid #000; /* For better visualization, not necessary */
+	float: left;
+}
+
+/* One column */
+.footer-widget-area:nth-child(1):nth-last-child(1) {
+	float: none; /* No need for one column to float */
+	width: 100%;
+}
+
+/* Two columns */
+.footer-widget-area:nth-child(1):nth-last-child(2),
+.footer-widget-area:nth-child(2):nth-last-child(1) {
+	width: 50%;
+}
+
+/* Three columns */
+.footer-widget-area:nth-child(1):nth-last-child(3),
+.footer-widget-area:nth-child(2):nth-last-child(2),
+.footer-widget-area:nth-child(3):nth-last-child(1) {
+	width: 33.3333%;
 }
